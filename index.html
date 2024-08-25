@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="message">This page is not available for this screen size.</div>
+    <div class="container">
+        <h2 id="page-title">View Boost</h2>
+        <h5 id="provider">Provider: Mrfard.ir</h5>
+        <form id="requestForm">
+            <label for="server">Server:</label>
+            <input type="text" id="server" name="server" required>
+            <label for="url">URL:</label>
+            <input type="text" id="url" name="url" required>
+            <div class="proxy-settings">
+                <label for="proxy-on">Enable Proxy</label>
+                <input type="radio" id="proxy-on" name="proxy" value="on" checked>
+                <label for="proxy-off">Disable Proxy</label>
+                <input type="radio" id="proxy-off" name="proxy" value="off">
+            </div>
+            <label for="keywords">Keywords:</label>
+            <textarea id="keywords" name="keywords" required></textarea>
+            <div class="actions">
+                <button type="submit" id="submit-btn">Start</button>
+                <button type="button" id="open-log-btn">Open Log</button>
+            </div>
+        </form>
+        <div id="logModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="update">
+                    <p>Updates...</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Get modal element
+        var modal = document.getElementById('logModal');
+        var btn = document.getElementById('open-log-btn');
+        var span = document.getElementsByClassName('close')[0];
+
+        // Open modal
+        btn.onclick = function() {
+            modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+        }
+
+        // Close modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+
+        // Close modal when clicking outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+        }
+    </script>
+</body>
+
+</html>
