@@ -69,11 +69,13 @@ body {
 }
 
 .proxy-settings {
-    margin-bottom: 15px;
     font-size: 14px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    color: lightgray;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .proxy-settings input[type="radio"] {
@@ -167,6 +169,7 @@ body.modal-open {
     #message {
         display: block;
     }
+
     .container {
         display: none;
     }
